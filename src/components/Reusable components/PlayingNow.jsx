@@ -2,9 +2,7 @@ function PlayingNow(props) {
   if (props.liveNow.liveShowsAtm === false) {
     return (
       <article id="playingNow" className="playing-now-comp">
-        <h2>
-          Playing now <span>.</span>
-        </h2>
+        <h2>Playing now</h2>
         <div className="playing-now-none">
           <article>
             <h3>Currently there are no live shows</h3>
