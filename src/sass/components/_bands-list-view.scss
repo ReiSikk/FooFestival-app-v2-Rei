@@ -57,9 +57,23 @@
   /* box-shadow: 0px 4px 7.5px rgba(255, 128, 44, 0.025); */
   transition: all 0.3s ease 0s;
 }
+.band-page-details-card {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  h4 {
+    border-bottom: none !important;
+    color: $orange;
+  }
+}
+.band-page-band-card:hover {
+  box-shadow: none !important;
+}
 .band-card:hover {
   /*  box-shadow: 4px 8px rgba(255, 128, 44, 0.5); */
-  box-shadow: rgba(139, 139, 139, 0.2) 0px 7px 10px, rgba(31, 31, 31, 1) 0px 5px 5px;
+  box-shadow: rgba(139, 139, 139, 0.2) 0px 5px 5px, rgba(31, 31, 31, 1) 0px 3px 3px;
 }
 //read more btn
 .read-more-btn {
