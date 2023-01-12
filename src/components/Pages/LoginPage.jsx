@@ -33,7 +33,7 @@ function LoginPage(props) {
             <input
               required
               pattern="[A-Za-z0-9._+-]+@[A-Za-z0-9 -]+\.[a-z]{2,}"
-              title="Must be a valid email address"
+              title="Please enter a valid email address"
               aria-required="true"
               autoFocus
               id="email"
@@ -45,10 +45,11 @@ function LoginPage(props) {
           <div className="ticket-number-input">
             <label htmlFor="ticketNumber">Ticket number </label>
             <input
-              title="Must be a valid Ticket Number"
+              title="Please enter your 9 character ticket number"
               required
               pattern="[A-Za-z0-9]{9,9}"
               aria-required="true"
+              aria-invalid="false"
               id="ticketNumber"
               type="text"
               name="ticketNumber"
@@ -59,7 +60,6 @@ function LoginPage(props) {
               placeholder="AID74RBSM"
             />
           </div>
-
           <input
             className="log-in-button"
             id="log-in-button"
