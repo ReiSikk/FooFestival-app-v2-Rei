@@ -20,8 +20,10 @@ function Landing(props) {
         </h1>
         {/* </section> */}
       </section>
-      <PlayingNow liveNow={liveNow} />
-      <Schedule />
+      <section className="playing-now-schedule">
+        <PlayingNow liveNow={liveNow} />
+        <Schedule />
+      </section>
       {/* <TodaysHeadliners /> */}
       <article className="news-section">
         <div>
