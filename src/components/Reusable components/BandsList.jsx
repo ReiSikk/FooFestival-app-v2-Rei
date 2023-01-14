@@ -16,9 +16,24 @@ function BandsList(props) {
       {props.filter.stage === "all" && props.filter.day === "all" ? <h2>Full lineup</h2> : null}
       <div className="bands-list-wrapper">
         {props.filteredList.map((show) => {
-          return show.act != "break" ? <BandCard key={show.act} start={show.start} end={show.end} stage={show.stage} day={show.day} bandName={show.act} /> : null;
+          return show.act != "break" ? (
+            <BandCard
+              start={show.start}
+              end={show.end}
+              day={show.day}
+              stage={show.stage}
+              act={show.act}
+              key={show.act}
+              bandName={show.act}
+              id={Date.now()}
+              addToFavourites={props.addToFavourites}
+              removeFromFavourites={props.removeFromFavourites}
+              favouriteList={props.favouriteList}
+              data={props.filteredList}
+            />
+          ) : null;
         })}
-      </div>{" "}
+      </div>
     </div>
   );
 }

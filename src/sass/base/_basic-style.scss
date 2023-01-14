@@ -97,7 +97,9 @@ button {
 .empty-heart-icon:hover {
   filter: invert(63%) sepia(45%) saturate(3993%) hue-rotate(330deg) brightness(90%) contrast(85%);
 }
-
+.full-heart-icon {
+  filter: invert(28%) sepia(30%) saturate(3440%) hue-rotate(326deg) brightness(99%) contrast(94%);
+}
 //message on favourites page
 
 .user-message {
