@@ -6,12 +6,12 @@ function BandPage(props) {
   //using this const to render the see more in the band card in the list view but not on the band page view
   const page = "bandPage";
   //have to use location to pass data from the link to the page
-  const location = useLocation();
   const { state } = useLocation();
   const { pageName, data } = state;
   //location as current band
   const currentBand = state.pageName;
   const bandsList = state.data;
+  console.log("bandsList", bandsList);
   const [bandDisplayed, setBandDisplayed] = useState({
     name: "",
     members: [],

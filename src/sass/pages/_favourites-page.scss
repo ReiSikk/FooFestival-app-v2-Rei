@@ -1,0 +1,27 @@
+.favourites-list-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.75rem;
+  margin-top: 1.3rem;
+}
+.favourite-page {
+  .favourites-list-wrapper {
+    margin-right: 1.25rem;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .favourites-list-wrapper {
+    grid-template-columns: 1fr 1fr;
+    .band-card {
+      .read-more-btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  .favourites-list-wrapper {
+    grid-template-columns: 1fr;
+  }
+}

@@ -10,7 +10,6 @@ function Favourites(props) {
 
   const removeFromFavourites = (e) => {
     let selectedFav = e.target.name;
-    console.log("remove");
     console.log(selectedFav);
     setFavouriteList((prevList) => prevList.filter((band) => band !== selectedFav));
   };
@@ -19,12 +18,12 @@ function Favourites(props) {
     <section className="favourite-page">
       <h1>Your favourites</h1>
       {favouriteList != "" ? (
-        <div className="bands-list-wrapper">
+        <div className="favourites-list-wrapper">
           {favouriteList.map((band) => {
             return (
               <FavouriteBandCard
                 bandName={band}
-                removesFromFavourites={removeFromFavourites}
+                removeFromFavourites={removeFromFavourites}
                 setFavouriteList={setFavouriteList}
                 favouriteList={favouriteList}
                 key={band}
