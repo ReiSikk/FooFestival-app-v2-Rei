@@ -14,7 +14,9 @@ function PlayingNow(props) {
   } else {
     return (
       <article id="playingNow" className="playing-now-comp">
-        <h2 className="playing-now-headline">Playing now</h2>
+        <h2 className="playing-now-headline">
+          Playing now<span className="playing-now-dot"></span>
+        </h2>
         <div className="playing-now-content">
           <article className="playing-now-band">
             <h3>{props.liveNow.jotunheimLiveState}</h3>
