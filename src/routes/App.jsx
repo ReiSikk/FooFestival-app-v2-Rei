@@ -33,19 +33,21 @@ function App(props) {
   //fetching data
   useEffect(() => {
     async function getSchedule() {
-      const res = await fetch("https://morning-mountain-4570.fly.dev/schedule");
+      /*  const res = await fetch("https://morning-mountain-4570.fly.dev/schedule"); */
+      const res = await fetch("http://localhost:8080/schedule");
       const schedule = await res.json();
       setScheduledBands(schedule);
-      console.log(schedule);
-      //call the function every minute
+      //call function to display info immediately
+      findLiveBands(schedule);
+      //call the function every half an hour
       setInterval(() => {
         findLiveBands(schedule);
-      }, 10000);
+      }, 1800000);
     }
     getSchedule();
   }, []);
 
-  //called every 10 seconds
+  //called every 30 minutes
   function findLiveBands(data) {
     const schedule = data;
     const now = new Date();
@@ -114,16 +116,17 @@ function App(props) {
         liveAtJotunheim = show.act;
         isFoofestLive = true;
         // find next up
-        //get index of next event object
-        nextUp = liveIndex + 1;
+        //get index of next event object excluding the breaks
+        nextUp = liveIndex + 2;
+
+        //*old v1 code down here
         //check if next event is "break"
-        if (todayAtJotunheim[nextUp].act === "break") {
+        /*      if (todayAtJotunheim[nextUp].act === "break") {
           nextUp = liveIndex + 2;
           nextActJotunheim = todayAtJotunheim[nextUp].act;
           nextUpStart = todayAtJotunheim[nextUp].start;
           nextLiveAtJotunheim = nextActJotunheim;
-        }
-        nextUpStart = todayAtJotunheim[nextUp].start;
+        } */
         nextActJotunheim = todayAtJotunheim[nextUp].act;
         nextLiveAtJotunheim = nextActJotunheim;
       }
@@ -148,15 +151,8 @@ function App(props) {
         liveAtMidgard = show.act;
         isFoofestLive = true;
 
-        //get index of next event object
-        nextUp = liveIndex + 1;
-        //check if next event is "break"
-        if (todayAtMidgard[nextUp].act === "break") {
-          nextUp = liveIndex + 2;
-          nextActMidgard = todayAtMidgard[nextUp].act;
-
-          nextLiveAtMidgard = nextActMidgard;
-        }
+        //get index of next event object excluding the break
+        nextUp = liveIndex + 2;
         nextActMidgard = todayAtMidgard[nextUp].act;
         nextLiveAtMidgard = nextActMidgard;
       }
@@ -174,21 +170,25 @@ function App(props) {
       let liveIndex = 0;
       let nextUp = 0;
       let nextActVanaheim = "";
+
+      //find start time of next show if a break is on
+      if (vanaheimToday === "break" && currentTime > vanaheimStart && currentTime < vanaheimdEnd) {
+        liveIndex = todayAtVanaheim.indexOf(show);
+        //console.log("liveIndex at break", liveIndex);
+        nextUp = liveIndex + 1;
+        //console.log("nextUp if break is on", nextUp);
+        nextUpStart = todayAtVanaheim[nextUp].start;
+        //console.log("nextUpStart if break is on", nextUpStart);
+      }
       //find the act that is live now
       if (vanaheimToday != "break" && currentTime > vanaheimStart && currentTime < vanaheimdEnd) {
         liveIndex = todayAtVanaheim.indexOf(show);
         liveAtVanaheim = show.act;
         isFoofestLive = true;
 
-        //find next up
-        nextUp = liveIndex + 1;
-        //check if next event is "break"
-        if (todayAtVanaheim[nextUp].act === "break") {
-          nextUp = liveIndex + 2;
-          nextActVanaheim = todayAtVanaheim[nextUp].act;
-
-          nextLiveAtVanaheim = nextActVanaheim;
-        }
+        //get index of next event object excluding the break
+        nextUp = liveIndex + 2;
+        nextUpStart = todayAtVanaheim[nextUp].start;
         nextActVanaheim = todayAtVanaheim[nextUp].act;
         nextLiveAtVanaheim = nextActVanaheim;
       }
