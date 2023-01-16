@@ -5,6 +5,24 @@
   align-items: baseline;
   justify-content: space-between;
 }
+.playing-now-none {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  gap: 0.5rem;
+  text-align: center;
+  article {
+    h3 {
+      font-weight: 700;
+      padding-bottom: 0.5rem;
+    }
+  }
+}
+.playing-now-comp {
+  min-height: 10rem;
+}
 .playing-now-band {
   h3 {
     color: $orange;
