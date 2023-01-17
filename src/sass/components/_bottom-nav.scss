@@ -36,8 +36,17 @@
         height: 20px;
       }
       p {
+        transition: all 0.3s ease;
         color: $black;
         margin: 0;
+      }
+    }
+    a:hover {
+      img {
+        filter: invert(63%) sepia(45%) saturate(3993%) hue-rotate(330deg) brightness(90%) contrast(85%);
+      }
+      p {
+        color: $orange;
       }
     }
   }

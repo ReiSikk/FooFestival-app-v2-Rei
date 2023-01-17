@@ -111,3 +111,35 @@ button {
   margin-top: auto;
   margin-bottom: 12vh;
 }
+//primary button styling
+.primary-button {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: auto;
+  padding: 0.8rem 1.6rem;
+  border-radius: 12px;
+  border: 1px solid $white;
+  cursor: pointer;
+  width: max-content;
+  object-fit: contain;
+  max-width: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.35);
+}
+
+.primary-button:hover {
+  border-color: $orange;
+  transition: all 0.3s ease-in;
+  a {
+    padding-right: 0.5rem;
+  }
+}
+@media only screen and (max-width: 678px) {
+  .primary-button {
+    width: 100%;
+  }
+  .button-container {
+    justify-content: center;
+  }
+}

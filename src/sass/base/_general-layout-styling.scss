@@ -40,19 +40,30 @@ ul {
 
 .news-section {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   gap: 1rem;
 
   div {
     @include white-border;
-    @include landing-page-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap;
     width: 100%;
     min-height: 15rem;
   }
+  div > :nth-child(1) {
+    min-width: 100%;
+    height: fit-content;
+  }
+  div > :nth-child(2) {
+    min-width: 100%;
+    height: fit-content;
+  }
 }
-@media only screen and (min-width: 678px) {
+@media only screen and (max-width: 678px) {
   .news-section {
-    flex-direction: row;
+    flex-direction: column;
   }
 }

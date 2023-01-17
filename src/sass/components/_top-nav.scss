@@ -8,6 +8,7 @@
 .top-nav {
   @include flex-nav;
   padding: 1rem;
+  background: transparent;
 }
 
 .nav-logo {
