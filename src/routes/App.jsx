@@ -173,11 +173,8 @@ function App(props) {
       //find start time of next show if a break is on
       if (vanaheimToday === "break" && currentTime > vanaheimStart && currentTime < vanaheimdEnd) {
         liveIndex = todayAtVanaheim.indexOf(show);
-        //console.log("liveIndex at break", liveIndex);
         nextUp = liveIndex + 1;
-        //console.log("nextUp if break is on", nextUp);
         nextUpStart = todayAtVanaheim[nextUp].start;
-        //console.log("nextUpStart if break is on", nextUpStart);
       }
       //find the act that is live now
       if (vanaheimToday != "break" && currentTime > vanaheimStart && currentTime < vanaheimdEnd) {

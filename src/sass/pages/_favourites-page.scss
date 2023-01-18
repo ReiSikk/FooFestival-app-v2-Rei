@@ -7,6 +7,15 @@
 .favourite-page {
   .favourites-list-wrapper {
     margin-right: 1.25rem;
+    .band-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      .band-card-content {
+        display: none;
+      }
+    }
   }
 }
 @media only screen and (max-width: 1024px) {
